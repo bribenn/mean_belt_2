@@ -37,7 +37,6 @@ app.controller('PollsController', function(UserFactory, PollFactory, $cookies, $
 	self.show = function(){
   		PollFactory.show($routeParams.id, function(response){
   			self.poll = response.data
-  			console.log('show:' + self.poll)
   			return self.poll
   		})
   	},
@@ -45,7 +44,6 @@ app.controller('PollsController', function(UserFactory, PollFactory, $cookies, $
 		PollFactory.destroy(poll_id, self.index)
 	},
 	self.updateVotes = function(option){
-		console.log(option)
 		PollFactory.updateVotes($routeParams.id, option, self.show)
 	}
 })
