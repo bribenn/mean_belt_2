@@ -1,0 +1,21 @@
+<div ng-controller="UsersController as UC" ng-init="UC.session()">
+	<div>
+		<a href="#!/dashboard">Cancel</a>
+	</div>
+<!-- create a poll question -->
+	<h3>Put the question and options here:</h3>
+	<form ng-submit="PC.create(newPost)">
+		<label>Question:</label>
+		<input type="text" ng-model="PC.newPoll.question">
+		<label>Option 1:</label>
+		<input type="text" ng-model="PC.newPoll.option_one.content">
+		<label>Option 2:</label>
+		<input type="text" ng-model="PC.newPoll.option_two.content">
+		<label>Option 3:</label>
+		<input type="text" ng-model="PC.newPoll.option_three.content">
+		<label>Option 4:</label>
+		<input type="text" ng-model="PC.newPoll.option_four.content">
+		<input type="submit" value="Create Poll">
+	</form>
+	<p class="error" ng-repeat="error in PC.new_poll_errors track by $index">{{error}}</p>
+</div>

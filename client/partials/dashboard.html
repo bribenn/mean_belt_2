@@ -1,0 +1,33 @@
+<div ng-controller="UsersController as UC" class="container" ng-init="UC.session()">
+
+<!-- navigation links -->
+	<div>
+		<a href="#!/polls">Create a New Poll</a>
+		<a href="#" ng-click="UC.logout()">Logout</a>
+	</div>
+
+<!-- showing current polls -->
+	<h2>Current Polls:</h2>
+
+	<input placeholder="Search" type="text" ng-model="search_polls">
+	
+	<div ng-init="PC.index()">
+		
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Survey Question</th> 
+				<th>Date Posted</th>
+				<th>Action</th>
+			</tr>
+			<tr ng-repeat="poll in PC.polls | filter:search_polls" ng-init='index = $index'>
+				<td>{{poll.user.name}}</td>
+				<td><a href=#!/polls/{{poll._id}}>{{poll.question}}</a></td> 
+				<td>{{poll.createdAt | date: "MMM dd, yyyy"}}</td>
+				<td><a href='' ng-if="UC.current_user._id == poll.user._id" ng-click="PC.destroy(poll._id)">Delete</a></td>
+			</tr>
+		</table>
+		
+	</div>
+
+</div>

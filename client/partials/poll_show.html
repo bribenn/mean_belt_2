@@ -1,0 +1,33 @@
+<div ng-init="PC.show()">
+	<a href="#!/dashboard">Go to Polls</a>
+	<p>{{PC.poll.question}}</p>
+	<p>click the vote to choose one</p>
+
+	<table>
+			<tr>
+				<th>Option</th>
+				<th>Current Count of Votes</th> 
+				<th>Action</th>
+			</tr>
+			<tr>
+				<td>{{PC.poll.option_one.content}}</td>
+				<td>{{PC.poll.option_one.votes.count}}</td>
+				<td><a href='' ng-click="PC.updateVotes({option: 'option_one'})">Vote</a></td>
+			</tr>
+			<tr>
+				<td>{{PC.poll.option_two.content}}</td>
+				<td>{{PC.poll.option_two.votes.count}}</td>
+				<td><a href='' ng-click="PC.updateVotes({option: 'option_two'})">Vote</a></td>
+			</tr>
+			<tr>
+				<td>{{PC.poll.option_three.content}}</td>
+				<td>{{PC.poll.option_three.votes.count}}</td>
+				<td><a href='' ng-click="PC.updateVotes({option: 'option_three'})">Vote</a></td>
+			</tr>
+			<tr>
+				<td>{{PC.poll.option_four.content}}</td> 
+				<td>{{PC.poll.option_four.votes.count}}</td>
+				<td><a href='' ng-click="PC.updateVotes({option:'option_four'})">Vote</a></td>
+			</tr>
+		</table>
+</div>
